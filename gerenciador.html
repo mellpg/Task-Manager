@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="imagens/logo.jpg" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a href="sobre_mim.html">Sobre mim</a></li>
+        <li><a href="projeto.html">Projeto</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <section id="gerenciador">
+      <h2 class="fade-slide-in">Adicione sua Tarefa:</h2>
+      <input type="text" id="novaTarefa" placeholder="Digite uma Tarefa" />
+      <button onclick="adicionarTarefa()">adicionar</button>
+      <div id="listaTarefas"></div>
+    </section>
+    <section id="apagar">
+      <button onclick="limparTarefas()">Limpar tarefas</button>
+    </section>
+    <a href="index.html" class="btn-voltar">Voltar à Página inicial</a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
