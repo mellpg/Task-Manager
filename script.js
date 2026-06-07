@@ -1,56 +1,100 @@
-let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-
-const listaTarefas = document.getElementById("listaTarefas");
-const inputTarefa = document.getElementById("novaTarefa");
-
-function renderizarTarefas() {
-  listaTarefas.innerHTML = "";
-
-  tarefas.forEach((tarefa, index) => {
-    const divTarefa = document.createElement("div");
-    divTarefa.classList.add("tarefa");
-    divTarefa.classList.add(tarefa.status);
-
-    divTarefa.innerHTML = `
-            <span>${tarefa.texto}</span>
-            <button onclick="marcarFeito(${index})">Feito</button>
-            <button onclick="cancelarTarefa(${index})">Cancelar</button>
-        `;
-
-    listaTarefas.appendChild(divTarefa);
-  });
-}
-
+// Gerenciador de Tarefas
 function adicionarTarefa() {
-  const texto = inputTarefa.value.trim();
-  if (texto === "") return;
+  const input = document.getElementById("novaTarefa");
+  const tarefaTexto = input.value.trim();
 
-  tarefas.push({ texto, status: "pendente" });
+  if (tarefaTexto === "") {
+    alert("Por favor, digite uma tarefa!");
+    return;
+  }
+
+  const lista = document.getElementById("listaTarefas");
+  const tarefaDiv = document.createElement("div");
+  tarefaDiv.className = "tarefa-item";
+
+  tarefaDiv.innerHTML = `
+    <div class="tarefa-conteudo">
+      <span class="tarefa-texto">${tarefaTexto}</span>
+    </div>
+    <div class="tarefa-acoes">
+      <button class="btn-tarefa-concluir" onclick="toggleConcluir(this)">
+        <i class="fas fa-check-circle"></i>
+      </button>
+      <button class="btn-tarefa-cancelar" onclick="cancelarTarefa(this)">
+        <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+  `;
+
+  lista.appendChild(tarefaDiv);
+  input.value = "";
   salvarTarefas();
-  renderizarTarefas();
-  inputTarefa.value = "";
 }
 
-function marcarFeito(index) {
-  tarefas[index].status = "feito";
+function toggleConcluir(botao) {
+  const tarefaItem = botao.closest(".tarefa-item");
+  tarefaItem.classList.toggle("concluida");
   salvarTarefas();
-  renderizarTarefas();
 }
 
-function cancelarTarefa(index) {
-  tarefas[index].status = "cancelado";
+function cancelarTarefa(botao) {
+  const tarefaItem = botao.closest(".tarefa-item");
+  tarefaItem.remove();
   salvarTarefas();
-  renderizarTarefas();
-}
-
-function salvarTarefas() {
-  localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
 function limparTarefas() {
-  tarefas = [];
-  salvarTarefas();
-  renderizarTarefas();
+  const lista = document.getElementById("listaTarefas");
+  if (lista.children.length > 0) {
+    if (confirm("Tem certeza que deseja limpar todas as tarefas?")) {
+      lista.innerHTML = "";
+      salvarTarefas();
+    }
+  } else {
+    alert("Não há tarefas para limpar!");
+  }
 }
 
-renderizarTarefas();
+function salvarTarefas() {
+  const tarefas = [];
+  const itens = document.querySelectorAll(".tarefa-item");
+  itens.forEach((item) => {
+    tarefas.push({
+      texto: item.querySelector(".tarefa-texto").textContent,
+      concluida: item.classList.contains("concluida"),
+    });
+  });
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function carregarTarefas() {
+  const tarefasSalvas = localStorage.getItem("tarefas");
+  if (tarefasSalvas) {
+    const tarefas = JSON.parse(tarefasSalvas);
+    const lista = document.getElementById("listaTarefas");
+    lista.innerHTML = "";
+    tarefas.forEach((tarefa) => {
+      const tarefaDiv = document.createElement("div");
+      tarefaDiv.className = "tarefa-item";
+      if (tarefa.concluida) tarefaDiv.classList.add("concluida");
+
+      tarefaDiv.innerHTML = `
+        <div class="tarefa-conteudo">
+          <span class="tarefa-texto">${tarefa.texto}</span>
+        </div>
+        <div class="tarefa-acoes">
+          <button class="btn-tarefa-concluir" onclick="toggleConcluir(this)">
+            <i class="fas fa-check-circle"></i>
+          </button>
+          <button class="btn-tarefa-cancelar" onclick="cancelarTarefa(this)">
+            <i class="fas fa-times-circle"></i>
+          </button>
+        </div>
+      `;
+      lista.appendChild(tarefaDiv);
+    });
+  }
+}
+
+// Carregar tarefas ao iniciar
+document.addEventListener("DOMContentLoaded", carregarTarefas);

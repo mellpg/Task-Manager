@@ -1,47 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Sobre Mel Pereira - Estudante de Ciência da Computação e desenvolvedora web"
+    />
+    <meta name="author" content="Mel Pereira" />
+    <title>Sobre Mim | Mel Pereira</title>
+    <link rel="icon" href="imagens/logo.jpg" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre-mim</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="imagens/logo.jpg">
-</head>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-<body>
-    <nav class="navbar">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <ul class="menu">
-            <li><a href="sobre_mim.html">Sobre mim</a></li>
-            <li><a href="projeto.html">Projeto</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
+    <!-- Seu CSS original -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Override Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-override.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html">
+          <img src="imagens/logo.jpg" alt="Logo" class="logo-img" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="sobre_mim.html">Sobre mim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projeto.html">Projeto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
-    <section id="sobre-mim">
+    <!-- CONTEÚDO COM GRID DE 12 COLUNAS -->
+    <main class="container mt-5 pt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-12">
+          <div class="card-sobre fade-slide-in">
+            <div class="text-center mb-4">
+              <!-- SEU ROBÔ FOFINHO - Substituindo o astronauta -->
+              <div class="avatar-circle mx-auto mb-3">
+                <i class="fas fa-robot fa-3x"></i>
+              </div>
+              <h1 class="display-5 fw-bold mb-2">Sobre Mim</h1>
+              <div class="divider-glow mx-auto"></div>
+            </div>
 
-        <div class="card-sobre">
-            <h2 class="fade-slide-in">Sobre Mim</h2>
+            <div class="sobre-conteudo">
+              <p class="lead text-center mb-4">
+                <i class="fas fa-star me-2 star-icon"></i>
+                Meu nome é
+                <strong class="text-glow">Mel Pereira Guimarães</strong>
+                <i class="fas fa-star ms-2 star-icon"></i>
+              </p>
 
-            <p>Meu nome é <strong>Mel Pereira Guimarães</strong></p>
+              <div class="info-cards">
+                <div class="info-card">
+                  <i class="fas fa-graduation-cap fa-2x mb-3"></i>
+                  <h3>Estudante</h3>
+                  <p>Ciência da Computação</p>
+                </div>
+                <div class="info-card">
+                  <i class="fas fa-code fa-2x mb-3"></i>
+                  <h3>Desenvolvedora</h3>
+                  <p>Web & Front-end</p>
+                </div>
+                <div class="info-card">
+                  <i class="fas fa-heart fa-2x mb-3"></i>
+                  <h3>Primeiro Projeto</h3>
+                  <p>Jornada de aprendizado</p>
+                </div>
+              </div>
 
-            <p>E sou estudante de Ciência da Computação.</p>
+              <div class="sobre-texto mt-4">
+                <p>
+                  Este é meu primeiro projeto de desenvolvimento web, criado
+                  como parte da minha jornada de aprendizado.
+                </p>
+                <p class="mb-0">
+                  Busco sempre aplicar boas práticas de programação e evoluir
+                  continuamente meus projetos.
+                </p>
+              </div>
 
-            <p>Este é meu primeiro projeto de desenvolvimento web, criado como parte da minha jornada de aprendizado.
-            </p>
+              <div class="habilidades mt-4">
+                <h4 class="text-center mb-3">
+                  Tecnologias que estou estudando
+                </h4>
+                <div class="skills-grid">
+                  <span class="skill-tag"
+                    ><i class="fab fa-html5"></i> HTML5</span
+                  >
+                  <span class="skill-tag"
+                    ><i class="fab fa-css3-alt"></i> CSS3</span
+                  >
+                  <span class="skill-tag"
+                    ><i class="fab fa-js"></i> JavaScript</span
+                  >
+                  <span class="skill-tag"
+                    ><i class="fab fa-bootstrap"></i> Bootstrap</span
+                  >
+                  <span class="skill-tag"
+                    ><i class="fab fa-git-alt"></i> Git</span
+                  >
+                </div>
+              </div>
+            </div>
 
-            <p>Busco sempre aplicar boas práticas de programação e evoluir continuamente meus projetos.</p>
+            <div class="text-center mt-5">
+              <a href="index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left me-2"></i>Voltar à Página inicial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <footer class="footer text-center mt-auto">
+      <div class="container py-3">
+        <p class="mb-0 small">© 2026 - Meu Portfólio | Mel Pereira</p>
+      </div>
+    </footer>
 
-    </section>
-
-
-
-    <a href="index.html" class="btn-voltar">Voltar à Página inicial</a>
-
-
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
