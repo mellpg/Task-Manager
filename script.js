@@ -96,5 +96,4 @@ function carregarTarefas() {
   }
 }
 
-// Carregar tarefas ao iniciar
 document.addEventListener("DOMContentLoaded", carregarTarefas);

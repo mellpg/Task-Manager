@@ -14,32 +14,26 @@
     <title>Gerenciador de Tarefas | Mel Pereira</title>
     <link rel="icon" href="imagens/logo.jpg" />
 
-    <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
-    <!-- Seu CSS original -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Override Bootstrap -->
     <link rel="stylesheet" href="bootstrap-override.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
       <div class="container">
         <a class="navbar-brand logo" href="index.html">
@@ -69,7 +63,6 @@
       </div>
     </nav>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container mt-5 pt-5">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10 col-12">
@@ -83,7 +76,6 @@
               <div class="divider-glow mx-auto my-3"></div>
             </div>
 
-            <!-- Formulário de adicionar tarefa -->
             <div class="tarefa-form mb-4">
               <div class="row g-2">
                 <div class="col-9">
@@ -102,19 +94,14 @@
               </div>
             </div>
 
-            <!-- Lista de tarefas -->
-            <div id="listaTarefas" class="tarefas-lista">
-              <!-- As tarefas serão inseridas aqui via JavaScript -->
-            </div>
+            <div id="listaTarefas" class="tarefas-lista"></div>
 
-            <!-- Botão limpar tarefas -->
             <div class="text-center mt-4">
               <button onclick="limparTarefas()" class="btn-clear">
                 <i class="fas fa-trash-alt me-2"></i>Limpar todas as tarefas
               </button>
             </div>
 
-            <!-- Voltar -->
             <div class="text-center mt-4">
               <a href="index.html" class="btn-voltar">
                 <i class="fas fa-arrow-left me-2"></i>Voltar à Página inicial
